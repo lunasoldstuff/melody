@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
@@ -27,7 +29,9 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+PROD = False
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', os.getenv("BASE_DOMAIN")]
 
 
 # Application definition
@@ -77,8 +81,12 @@ WSGI_APPLICATION = 'melody.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv("DB_NAME"),
+        'USER': os.getenv("DB_USER"),
+        'PASSWORD': os.getenv("DB_PASS"),
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -119,4 +127,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/assets/'
+STATIC_ROOT = BASE_DIR / 'assets/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static/'
+]
+
+MEDIA_ROOT = BASE_DIR / 'uploads/'
+MEDIA_URL = '/uploads/'
