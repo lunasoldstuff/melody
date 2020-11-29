@@ -11,3 +11,9 @@
 ## About Melody
 
 **Melody** is an open-source music platform that allows you to sell music, as well as setting up your own music site running [Discovery](https://github.com/mint-lgbt/discovery), (our sister project) which allows people to stream your music.
+
+## Anything else?
+
+Actually, yes! You can support us on Ko-fi:
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/K3K02SX3G)
