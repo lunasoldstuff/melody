@@ -1,3 +1,3 @@
 # Pluto
 
-The dashboard for managing music and preforming admin functions for superusers.
+The dashboard for managing music for normal users and preforming admin functions for superusers.
